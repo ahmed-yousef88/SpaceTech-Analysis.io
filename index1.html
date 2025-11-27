@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SpectroTech Analytics — X-ray Spectroscopy, MATLAB, GIS, Satellite Imaging</title>
+<meta name="description" content="XAS / XPS / EXAFS analysis, MATLAB automation, satellite imaging, GIS, remote sensing, scientific apps." />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- THEME COLORS ---------- */
+:root{
+  --blue:#1E3A8A;
+  --bg:#FFFFFF;
+  --muted:#6B7280;
+  --panel:#F5F7FA;
+  --maxw:1100px;
+  --radius:12px;
+}
+
+/* ---------- BASE ---------- */
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto;}
+body{margin:0;background:var(--bg);color:#111;overflow-x:hidden;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:28px;}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+  0% {opacity:0; transform:translateY(20px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+.fade-up{animation:fadeUp 1s ease both;}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+.fade-in{animation:fadeIn 1.2s ease both;}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+/* ---------- HEADER ---------- */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-mark{
+  width:52px;height:52px;border-radius:10px;
+  background:linear-gradient(135deg,#16307a,#2b5fb0);
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-weight:700;font-size:20px;
+  animation:fadeIn 1s ease;
+}
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+nav a:hover{color:var(--blue);transition:0.2s}
+
+/* ---------- HERO ---------- */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:40px;
+  align-items:center;
+  padding:40px 0;
+}
+.hero h2{
+  color:var(--blue);
+  font-size:34px;
+  margin:0 0 12px;
+}
+.hero p{color:#333;line-height:1.6;margin:0 0 20px;}
+
+.hero-illustration{
+  width:100%;
+  height:280px;
+  background:url("https://images.unsplash.com/photo-1531335221906-1c71c2b68a98?q=80&w=1000") center/cover;
+  border-radius:var(--radius);
+  animation:fadeIn 1.4s ease both;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:8px;
+  text-decoration:none;
+}
+.btn-primary{
+  background:var(--blue);
+  color:white;
+}
+.btn-primary:hover{
+  background:#142a68;
+}
+.btn-ghost{
+  border:2px solid var(--blue);
+  color:var(--blue);
+  background:transparent;
+}
+.btn-ghost:hover{
+  background:var(--blue);
+  color:white;
+}
+
+/* ---------- CARDS ---------- */
+.card-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  margin-top:22px;
+}
+.card{
+  background:var(--panel);
+  padding:18px;
+  border-radius:var(--radius);
+  flex:1 1 260px;
+  min-width:240px;
+  transition:0.3s;
+}
+.card h3{margin:0 0 8px;color:var(--blue);}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:36px 0;border-top:1px solid #eef2f6}
+
+/* ---------- PORTFOLIO IMAGES ---------- */
+.portfolio-img{
+  width:100%;
+  height:180px;
+  border-radius:var(--radius);
+  object-fit:cover;
+  margin-bottom:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ---------- CONTACT ---------- */
+.contact-card{
+  background:#fff;
+  border:1px solid #eef2f6;
+  padding:18px;
+  border-radius:var(--radius);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{text-align:center;color:var(--muted);font-size:14px;padding:28px 0}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-illustration{height:200px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="fade-in">
+  <div class="brand">
+    <div class="logo-mark">ST</div>
+    <div>
+      <h1 style="color:var(--blue);margin:0;font-size:22px;">SpectroTech Analytics</h1>
+      <div style="font-size:12px;color:var(--muted)">X-ray Spectroscopy • MATLAB • Satellite • GIS</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ---------------- HERO ---------------- -->
+<section class="hero fade-up">
+  <div>
+    <h2>Accelerate discoveries with expert analysis & robust automation</h2>
+    <p>Specialist in XAS, XPS, EXAFS, MATLAB automation, satellite imaging simulation, GIS, remote sensing, and scientific software.</p>
+
+    <a class="btn btn-primary" href="#contact">Contact Me</a>
+    <a class="btn btn-ghost" href="#services">View Services</a>
+
+    <div class="section" style="margin-top:28px;">
+      <h3 style="color:var(--blue);margin-bottom:12px;">Quick facts</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div class="fade-up" style="background:#fff;padding:10px;border-radius:8px;border:1px solid #eef2f6;">Ph.D. Applied Physics</div>
+        <div class="fade-up" style="background:#fff;padding:10px;border-radius:8px;border:1px solid #eef2f6;">10+ yrs MATLAB</div>
+        <div class="fade-up" style="background:#fff;padding:10px;border-radius:8px;border:1px solid #eef2f6;">100+ spectroscopy datasets</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-illustration"></div>
+</section>
+
+<!-- ---------------- SERVICES ---------------- -->
+<section id="services" class="section fade-up">
+  <h2 style="text-align:center;color:var(--blue);margin-bottom:20px;">Services</h2>
+
+  <div class="card-grid">
+
+    <div class="card fade-up">
+      <img src="https://images.unsplash.com/photo-1581091870444-67e87d0bfcdd?q=80&w=800" class="portfolio-img">
+      <h3>X-ray Spectroscopy Analysis</h3>
+      <p>Peak fitting, chemical state identification, EXAFS modeling, publication-ready figures.</p>
+      <p><strong>Price:</strong> $600–$2,000 / project</p>
+    </div>
+
+    <div class="card fade-up">
+      <img src="https://images.unsplash.com/photo-1581093588401-22b4d97835fb?q=80&w=800" class="portfolio-img">
+      <h3>MATLAB Automation & Software</h3>
+      <p>Custom GUIs, batch processing, visualization tools, scientific algorithms.</p>
+      <p><strong>Price:</strong> $60–$120/hr or $500–$5,000/project</p>
+    </div>
+
+    <div class="card fade-up">
+      <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=1000" class="portfolio-img">
+      <h3>Satellite Imaging & Simulation</h3>
+      <p>SNR modeling, TDI simulation, optical payload analysis, image quality metrics.</p>
+      <p><strong>Price:</strong> $400–$2,500 / project</p>
+    </div>
+
+    <div class="card fade-up">
+      <img src="https://images.unsplash.com/photo-1508435235209-54a58a7c37b7?q=80&w=800" class="portfolio-img">
+      <h3>GIS & Remote Sensing Services</h3>
+      <p>NDVI analysis, land-cover classification, geospatial visualization, EO data workflows.</p>
+      <p><strong>Price:</strong> $300–$2,000 / project</p>
+    </div>
+
+    <div class="card fade-up">
+      <img src="https://images.unsplash.com/photo-1573166364603-6f3c88d5f1df?q=80&w=800" class="portfolio-img">
+      <h3>Training & Workshops</h3>
+      <p>MATLAB, XAS/XPS/EXAFS, scientific app design, data visualization.</p>
+      <p><strong>Price:</strong> $60–$100/hr or $299–$999/workshop</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ---------------- PORTFOLIO ---------------- -->
+<section id="portfolio" class="section fade-up">
+  <h2 style="color:var(--blue);text-align:center;">Portfolio</h2>
+
+  <div style="max-width:900px;margin:18px auto;color:var(--muted)">
+
+    <h3 style="color:#222">X-ray Spectroscopy</h3>
+    <img src="https://images.unsplash.com/photo-1581092111191-3b6c3f4fa2f2?q=80&w=1000" class="portfolio-img">
+    <p><strong>XPS Peak Fitting:</strong> Voigt/Gaussian decomposition, chemical state mapping.</p>
+
+    <h3 style="color:#222;margin-top:20px">MATLAB Tools</h3>
+    <img src="https://images.unsplash.com/photo-1581090464777-e9d89fee23d2?q=80&w=1000" class="portfolio-img">
+    <p><strong>Spectroscopy GUI:</strong> Full automation pipeline for XAS/XPS datasets.</p>
+
+    <h3 style="color:#222;margin-top:20px">Satellite Imaging</h3>
+    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200" class="portfolio-img">
+    <p><strong>SNR & TDI Simulation:</strong> Mission-grade detector and imaging analysis.</p>
+
+    <h3 style="color:#222;margin-top:20px">GIS & Remote Sensing</h3>
+    <img src="https://images.unsplash.com/photo-1517089596392-fb0ac2633f7f?q=80&w=1000" class="portfolio-img">
+    <p><strong>NDVI & Classification Maps:</strong> Land cover, change detection, agriculture analysis.</p>
+
+  </div>
+</section>
+
+<!-- ---------------- CONTACT ---------------- -->
+<section id="contact" class="section fade-up">
+  <h2 style="color:var(--blue);text-align:center">Contact</h2>
+
+  <div style="max-width:900px;margin:0 auto;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;">
+
+    <div style="flex:1;min-width:300px;">
+      <div class="contact-card">
+        <strong>For enquiries, collaborations, & project quotes:</strong>
+        <p><strong>Email:</strong> <a href="mailto:yousef@jbnu.ac.kr">yousef@jbnu.ac.kr</a></p>
+        <p><strong>Alt Email:</strong> <a href="mailto:ahmedyousef.phy@gmail.com">ahmedyousef.phy@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmed-yousef-252527228" target="_blank">linkedin.com/in/ahmed-yousef-252527228</a></p>
+        <p><strong>Location:</strong> South Korea</p>
+        <p><strong>Availability:</strong> Remote & Global Projects</p>
+      </div>
+    </div>
+
+    <div style="flex:1;min-width:260px;">
+      <div style="background:var(--panel);padding:18px;border-radius:var(--radius);">
+        <strong>Quick proposal</strong>
+        <p class="muted" style="color:var(--muted)">Send a short description of your dataset or project. I will reply with a quote within 48 hours.</p>
+        <a class="btn btn-primary" href="mailto:yousef@jbnu.ac.kr">Request Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> SpectroTech Analytics — Built for research & industry
+</footer>
+
+<p id="visitCounter" style="text-align:center; color:#1E3A8A; font-weight:600; margin-top:20px;"></p>
+
+</div>
+
+<script>
+document.getElementById('year').innerText = new Date().getFullYear();
+</script>
+
+<script>
+// Visitor Counter using localStorage
+(function() {
+    // Get stored count (if exists)
+    let visitCount = localStorage.getItem("visit_count");
+
+    // If no count exists, first visit
+    if (!visitCount) {
+        visitCount = 1;
+    } else {
+        visitCount = parseInt(visitCount) + 1;
+    }
+
+    // Save back to storage
+    localStorage.setItem("visit_count", visitCount);
+
+    // OPTIONAL: Display it on the screen (add inside any element)
+    console.log("You have visited this site " + visitCount + " times.");
+
+    // If you want to show it somewhere on the page:
+    let badge = document.getElementById("visitCounter");
+    if (badge) {
+        badge.innerText = "Your visits: " + visitCount;
+    }
+})();
+</script>
+
+</body>
+</html>
